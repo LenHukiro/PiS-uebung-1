@@ -1,5 +1,4 @@
 import processing.core.PApplet;
-import processing.core.PConstants;
 
 import java.util.ArrayList;
 
@@ -25,7 +24,7 @@ public class Billiardtisch extends PApplet {
 
     public void setup() {
         for (int i = 0; i < 5; i++) {
-            kugeln.add(new Kugel(createShape(PConstants.ELLIPSE, 0, 0, 50, 50)));
+            kugeln.add(new Kugel());
         }
     }
 
@@ -35,6 +34,7 @@ public class Billiardtisch extends PApplet {
             kugel.draw();
         }
     }
+
 
     public ArrayList<Kugel> getKugeln() {
         return kugeln;
