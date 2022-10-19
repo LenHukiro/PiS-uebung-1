@@ -7,7 +7,7 @@ public class Billiardtisch extends PApplet {
     private final ArrayList<Kugel> kugeln = new ArrayList<>();
     private static final int width = 1000;
     private static final int height = 1000;
-    private static Billiardtisch mainClass = null;
+    private static Billiardtisch billiardtisch = null;
 
     public static void main(String... args) {
         PApplet.runSketch(new String[]{""}, new Billiardtisch());
@@ -15,7 +15,7 @@ public class Billiardtisch extends PApplet {
 
     Billiardtisch() {
         super();
-        mainClass = this;
+        billiardtisch = this;
     }
 
     public void settings() {
@@ -40,8 +40,8 @@ public class Billiardtisch extends PApplet {
         return kugeln;
     }
 
-    public static Billiardtisch getMainClass() {
-        return mainClass;
+    public static Billiardtisch getBilliardtisch() {
+        return billiardtisch;
     }
 
     public static int getHeight() {
