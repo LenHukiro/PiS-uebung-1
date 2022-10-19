@@ -56,7 +56,7 @@ public class Kugel {
         int dx = kugel.getX() - x;
         int dy = kugel.getY() - y;
 
-        double distance = Math.sqrt((double) (dx * dx + dy * dy));
+        double distance = Math.sqrt((dx * dx + dy * dy));
         int sumofRadii = radius + kugel.radius;
         return distance <= sumofRadii;
     }
