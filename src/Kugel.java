@@ -7,10 +7,11 @@ public class Kugel {
     int x, y, diametre;
     double directionX, directionY;
     private final Random random = new Random();
+    private boolean flip = false;
     Billiardtisch billiardtisch = Billiardtisch.getBilliardtisch();
 
     public Kugel() {
-        diametre = 100;
+        diametre = 10;
         do {
             x = random.nextInt(diametre, Billiardtisch.getWidth() - diametre);
             y = random.nextInt(diametre, Billiardtisch.getHeight() - diametre);
@@ -29,9 +30,12 @@ public class Kugel {
     }
 
     public void draw() {
-        x += directionX;
-        y += directionY;
-        collisionDetection();
+        if(!flip) {
+            x += directionX;
+            y += directionY;
+            collisionDetection();
+        }
+        flip = !flip;
         billiardtisch.fill(billiardtisch.color(65));
         billiardtisch.getGraphics().circle(x, y, diametre);
     }

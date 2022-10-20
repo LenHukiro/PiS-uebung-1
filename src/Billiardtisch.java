@@ -9,6 +9,8 @@ public class Billiardtisch extends PApplet {
     private static final int height = 1000;
     private static Billiardtisch billiardtisch = null;
 
+    private Rakete rocket;
+
     public static void main(String... args) {
         PApplet.runSketch(new String[]{""}, new Billiardtisch());
     }
@@ -26,6 +28,7 @@ public class Billiardtisch extends PApplet {
         for (int i = 0; i < 5; i++) {
             kugeln.add(new Kugel());
         }
+        rocket = new Rakete(width / 2, height);
     }
 
     public void draw() {
@@ -33,8 +36,19 @@ public class Billiardtisch extends PApplet {
         for (Kugel kugel : kugeln) {
             kugel.draw();
         }
+        rocket.draw();
     }
 
+    @Override
+    public void keyPressed() {
+        if (key == CODED) {
+            if (keyCode == UP) {
+                rocket.up();
+            } else if (keyCode == DOWN) {
+                rocket.down();
+            }
+        }
+    }
 
     public ArrayList<Kugel> getKugeln() {
         return kugeln;
